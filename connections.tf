@@ -3,6 +3,7 @@ provider "google" {
   project = "global-cursor-241512"
   region = "us-west1"
 }
+
 provider "aws" {
   region = "us-west-2"
 }
