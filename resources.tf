@@ -1,6 +1,6 @@
 resource "google_compute_network" "our_development_network" {
   name = "devnetwork"
-  auto_create_subnetworks = true
+  auto_create_subnetworks = false
 }
 
 resource "aws_vpc" "environment-example-two" {
