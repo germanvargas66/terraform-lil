@@ -1,17 +1,17 @@
 resource "google_container_cluster" "kubey" {
-  name = "kubeycluster"
-  location = "us-east1-b"
+  name               = "kubeycluster"
+  location           = "us-east1-b"
   initial_node_count = "1"
 
   node_locations = [
-    "us-east1-c"
+    "us-east1-c",
   ]
 
   master_auth {
     password = "password-123456789"
     username = "username"
   }
-  
+
   node_config {
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",
@@ -27,4 +27,3 @@ resource "google_container_cluster" "kubey" {
     tags = ["dev", "work"]
   }
 }
-
