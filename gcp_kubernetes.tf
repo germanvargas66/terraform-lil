@@ -27,3 +27,4 @@ resource "google_container_cluster" "kubey" {
     tags = ["dev", "work"]
   }
 }
+

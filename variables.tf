@@ -1,24 +1,24 @@
 # String variable
-variable network_name {
-  type = "string"
-  default = "thenewnet"
+variable "network_name" {
+  type        = string
+  default     = "thenewnet"
   description = "Just the network name for the Google Compute Platform"
 }
 
-variable gcp_ip_cidr_range {
-  default = "10.0.0.0/16"
-  type = "string"
+variable "gcp_ip_cidr_range" {
+  default     = "10.0.0.0/16"
+  type        = string
   description = "IP CIDR Range for Google VPC"
 }
 
-variable  aws_ip_cidr_range {
-  default = "10.0.1.0/24"
-  type = "string"
+variable "aws_ip_cidr_range" {
+  default     = "10.0.1.0/24"
+  type        = string
   description = "IP CIDR Range for AWS VPC"
 }
 
-variable subnet_names {
-  type = "map"
+variable "subnet_names" {
+  type = map(string)
 
   default = {
     subnet1 = "subnetone"
@@ -33,8 +33,6 @@ output "first_output" {
 }
 
 output "aws_cidr_subnet1" {
-  value = "${aws_subnet.subnet1.cidr_block}"
+  value = aws_subnet.subnet1.cidr_block
 }
-
-
 

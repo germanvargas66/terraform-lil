@@ -10,12 +10,13 @@ resource "google_compute_instance" "firstserver" {
   }
 
   network_interface {
-    subnetwork = "${google_compute_subnetwork.dev-subnet.name}"
+    subnetwork = google_compute_subnetwork.dev-subnet.name
 
-    access_config {}
+    access_config {
+    }
   }
 
-  metadata {
+  metadata = {
     foo = "bar"
   }
 
@@ -41,12 +42,13 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "secondserver" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
-  tags {
+  tags = {
     name = "identifiertag"
   }
 
-  subnet_id = "${aws_subnet.subnet2.id}"
+  subnet_id = aws_subnet.subnet2.id
 }
+
